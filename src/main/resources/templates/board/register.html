@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
+        <h1 class="mt-4">GuestBook Resister</h1>
+
+        <form th:action="@{/board/register}" th:method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" name="title" placeholder="Enter Title">
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea class="form-control" name="content" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="writerEmail">writerEmail</label>
+                <input type="email" class="form-control" name="writerEmail" placeholder="Enter writerEmail">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </th:block>
+</th:block>
+</html>
