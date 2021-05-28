@@ -14,7 +14,7 @@ import org.zerock.board.service.ReplyService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/replies/")
+@RequestMapping(value = "/replies/")
 @Slf4j
 @RequiredArgsConstructor
 public class ReplyController {
@@ -28,14 +28,21 @@ public class ReplyController {
     }
 
 
+
+    // 일반적인 Form 데이터는 그냥 DTO만 사용해서 값이 세팅이 되지만 JSON형태는 그냥 받을수 없다.
+    // JSON 형태의 데이터를 받을때는 @RequestBody를 사용해야한다.
     @PostMapping("")
     public ResponseEntity<Long> register(@RequestBody ReplyDTO replyDTO) {
         log.info("replyDTO=" + replyDTO);
         System.out.println("게시판번호는" + replyDTO.getBno());
         Long rno = replyService.register(replyDTO);
+
+        // 리턴할때 ResponseEntity사용이유는 HttpStatus를 같이 주기 위해 사용한다.
         return new ResponseEntity<>(rno, HttpStatus.OK);
     }
 
+
+    // url의 PathVariable rno 값을 추출하여 삭제를 한다
     @DeleteMapping("/{rno}")
     public ResponseEntity<String> remove(@PathVariable("rno") Long rno) {
         log.info("rno" + rno);

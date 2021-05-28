@@ -27,6 +27,7 @@ public class ReplyServiceImpl implements ReplyService {
     @Override
     public List<ReplyDTO> getList(Long bno) {
         List<Reply> result = replyRepository.getRepliesByBoardOrderByRno(Board.builder().bno(bno).build());
+        System.out.println(result);
         return result.stream().map(reply -> entityToDTO(reply)).collect(Collectors.toList());
     }
 

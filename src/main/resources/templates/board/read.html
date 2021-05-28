@@ -119,6 +119,10 @@
 
                         success: function (result) {
                             console.log("result: " + result);
+                            /*
+                            * == 연산자는 동등 연산자로, 피연산자가 서로 다른 타입이면 타입을 강제로 변환하여 비교한다. ...
+                            * 하지만 === 연산자는 일치 연산자로, 두 피연산자를 더 정확하게 비교한다
+                            * */
                             if (result === 'success') {
                                 alert("댓글이 삭제되었습니다");
                                 modal.modal("hide");

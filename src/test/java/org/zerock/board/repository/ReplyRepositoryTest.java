@@ -43,7 +43,8 @@ public class ReplyRepositoryTest {
 
         IntStream.rangeClosed(1,300).forEach(i -> {
 
-            long bno = (long) (Math.random() * 100) + 1;
+            long bno = (long) (Math.random() * 100) + 1; // 1부터 100까지의 랜덤한 숫자가 나온다
+            System.out.println(bno);
             Board board = Board.builder().bno(bno).build();
 
             Reply reply = Reply.builder()

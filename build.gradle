@@ -31,7 +31,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    runtimeOnly "mysql:mysql-connector-java"
     implementation 'com.querydsl:querydsl-jpa'
 
 }
